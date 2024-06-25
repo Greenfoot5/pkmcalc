@@ -1,4 +1,5 @@
 <script>
+    import Money from "./Money.svelte"
     export let title = "";
     export let skills = [];
 </script>
@@ -17,7 +18,7 @@
                 <label for="relic+{skill.io.html}" >Relic Level</label>
             </div>
             <div class="{skill.effect.html}" id="result">{skill.effect.display} {skill.effect.symbol} 1.00</div>
-            <div class="pkm-copper">{skill.baseprice * skill.value}</div>
+            <Money amount={skill.value * 11} />
         </div>
     {/each}
 </div>

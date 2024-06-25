@@ -2,6 +2,7 @@
     import Skill from "$lib/components/Skill.svelte";
 
     import skills from "$lib/data/skills.js";
+    import Money from "$lib/components/Money.svelte";
 </script>
 
 <nav id="header">
@@ -21,7 +22,7 @@
     </div>
 
     <div id="stats" class="grid grid-cols-4 place-items-center lg:px-32">
-        <div>Income: <span class="pkm-copper">1c</span> </div>
+        <div>Income: <Money amount={1} /> </div>
         <div>Fanaticism: <span class="pkm-fana">0</span> Gain: (<span class="pkm-fana">1</span>)</div>
         <div>Total Brands: <span class="pkm-brands">0</span></div>
         <div>Relic Discount: <span class="pkm-brands">1</span></div>
