@@ -15,7 +15,7 @@ let StatPage = {
                     SKILLHEADER
                 </button>
             </h2>
-            <div id="skills_GROUPNAME" class="accordion-collapse collapse">
+            <div id="skills_GROUPNAME" class="accordion-collapse collapse bg-emerald-400">
                 <div class="accordion-body">
                     <div class="row g-3 align-items-center">
                         <div class="col">
@@ -153,7 +153,7 @@ let StatPage = {
             case "concentration": return "Concentration";
             case "bargaining": return "Bargaining";
             case "meditation": return "Meditation";
-            
+
             case "strength": return "Strength";
             case "battletactics": return "Battle Tactics";
             case "musclememory": return "Muscle Memory";
@@ -186,7 +186,7 @@ let StatPage = {
             case "town_ruler" : return "Town Ruler";
             case "city_ruler" : return "City Ruler";
             case "kingdom_minister" : return "Kingdom Minister";
-                
+
             case "coin_pouch" : return "Coin Pouch";
             case "wooden_crown" : return "Wooden Crown";
             case "dumbells" : return "Dumbells";
@@ -199,7 +199,7 @@ let StatPage = {
             case "shiny_lamp" : return "Shiny lamp";
             case "golden_hourglass" : return "Golden Hourglass";
             case "mystic_satchel" : return "Mystic Satchel";
-                
+
             case "small_shield" : return "Small Shield";
             case "war_paint" : return "War Paint";
             case "short_bow" : return "Short Bow";
@@ -207,7 +207,7 @@ let StatPage = {
             case "knight_armor" : return "Knight Armor";
             case "war_horse" : return "War Horse";
             case "magic_sword" : return "Magic Sword";
-                
+
             case "squire" : return "Squire";
             case "bookeeper" : return "Bookkeeper";
             case "butler" : return "Butler";
@@ -229,23 +229,23 @@ let StatPage = {
             case "concentration":
             case "bargaining":
             case "meditation": return "fundamentals";
-            
-            case "strength": 
-            case "battletactics": 
+
+            case "strength":
+            case "battletactics":
             case "musclememory": return "combat";
 
-            case "manacontrol": 
-            case "lifeessence": 
-            case "resilience": 
+            case "manacontrol":
+            case "lifeessence":
+            case "resilience":
             case "materialism": return "magic";
 
             case "fanaticaldevotion":
-            case "ardentbelief": 
+            case "ardentbelief":
             case "zealousconviction":
-            case "extremepiety": 
+            case "extremepiety":
             case "absolutefaith":
             case "devoutmastery":
-            case "doggedperseverance": 
+            case "doggedperseverance":
             case "blazingfervour": return "darkmagic";
         }
     },
@@ -347,7 +347,7 @@ let StatPage = {
 
         let fdiscount = (1+Math.sqrt((1*jQuery('#current_fana').text().replaceAll(",",""))/10));
         jQuery("#current_fana").attr("title", `Current fanaticism discount: `+fdiscount.toFixed(1));
-        
+
         calcIncome();
         calcFana();
     },
@@ -364,21 +364,21 @@ let StatPage = {
         let skillcategory = StatPage.getCategory(skillname)
 
         let playerstats = _import.stats.playerStats;
-        
+
         jQuery('#'+skillname+'_skill_effect').text(
             getEffect(
-                data.skillEffects[skillcategory][skillname], 
-                jQuery('#'+skillname+'_skill_level').val(), 
-                getSkillEffects(), 
+                data.skillEffects[skillcategory][skillname],
+                jQuery('#'+skillname+'_skill_level').val(),
+                getSkillEffects(),
                 skillname == "concentration" ? true : false
             )
         );
         jQuery('#'+skillname+'_skill_cost').html(
             convertIntToCurrency(
                 Math.floor(getSkillPrice(
-                    jQuery('#'+skillname+'_skill_level').val(), 
-                    (skillcategory == "theorder"), 
-                    calcAllPrice(), 
+                    jQuery('#'+skillname+'_skill_level').val(),
+                    (skillcategory == "theorder"),
+                    calcAllPrice(),
                     calcHappiness(),
                     jQuery('#'+skillname+'_relic_level').val(),
                     (skillcategory == "darkmagic"),
@@ -406,7 +406,7 @@ let StatPage = {
                 let skillName = StatPage.skills[groupName][skill];
 
                 skillNameList.push(skillName)
-                
+
                 jQuery(`#${skillName}_skill_level`).val(stats.skills[groupName][skillName].level);
                 jQuery(`#${skillName}_relic_level`).val(stats.skills[groupName][skillName].reliclevel);
                 jQuery(`#${skillName}_skill_effect`).text(getEffect(1*data.skillEffects[groupName][skillName], 1*stats.skills[groupName][skillName].level, 1*stats.playerStats.skilleffects, false));
@@ -434,7 +434,7 @@ let StatPage = {
                     item = "holyman";
                     itemName = "holyman";
                 }
-                
+
                 jQuery(`#${item}_toggle`).prop("checked", _import.stats.shop[groupName][itemName] ? "checked" : "")
             }
         }

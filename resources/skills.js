@@ -22,16 +22,16 @@ let SkillPage = {
             let relicLevel = Player.skills[importSkillName].relicLevel;
 
             let skillCost = getSkillPrice(
-                skillLevel, 
-                groupname == "theorder", 
-                getAllPrice(), 
+                skillLevel,
+                groupname == "theorder",
+                getAllPrice(),
                 getHappiness(),
                 relicLevel,
                 groupname == "darkmagic",
                 Player.fanaticism < 1 ? 1 : Player.fanaticism,
                 getBoostStatus('happiness')
             );
-            
+
             let skillEffect = getEffect(
                 baseSkillEffect,
                 skillLevel,
@@ -40,13 +40,13 @@ let SkillPage = {
             );
 
             skillHTML = skillHTML + `
-                <div class="row border border-1 rounded-2 border border-1-light border border-1-primary">
+                <div class="flex justify-between pr-20">
                     <div class="col-auto col-xs col-3 col-sm col-md col-lg col-xl col-xxl align-self-center">
                         ${displaySkillName}
                     </div>
-                    <div class="col-auto col-xs col-3 col-sm col-md col-lg col-xl col-xxl">
+                    <div class="">
                         <div class="form-floating">
-                            <input type="number" class="form-control" id="${htmlSkillName}-skill-level" placeholder="1" value="${skillLevel}">
+                            <input type="number" class="text-gray-900" id="${htmlSkillName}-skill-level" placeholder="1" value="${skillLevel}">
                             <label for="${htmlSkillName}-skill-level">Skill Level</label>
                         </div>
                     </div>
@@ -67,16 +67,20 @@ let SkillPage = {
         }
 
         let groupHTML = `
-            <div class="row" onclick="toggleGroup('${groupname}')" style="cursor: pointer">
+<div class="py-4 px-6">
+<div class="rounded-md border border-gray-700 mt-2 sm:col-span-2 sm:mt-0 px-4 py-2 bg-gradient-to-br from-slate-800 to-slate-900 shadow-xl">
+            <div class="row py-1 text-lg font-semibold pb-2" onclick="toggleGroup('${groupname}')" style="cursor: pointer">
                 <div class="col-auto" id="header-${groupname}">
-                    <h5 class="amethyst">${SkillPage.getGroupName[groupname]}</h5 class="amethyst">
+                    <h5 class="amethyst">▼ ${SkillPage.getGroupName[groupname]}</h5>
                 </div>
             </div>
-            <div id="${groupname}">
-                <hr class="bg-primary border border-1-light border border-1-top border border-1-primary" />
+            <div id="${groupname}"> <!-- class="hidden" ▶ ▼ -->
+<!--                <hr class="" />-->
                 ${skillHTML}
             </div>
-            <hr class="bg-danger border border-1-light border border-1-top border border-1-danger" />
+            </div>
+<!--            <hr class="" />-->
+</div>
         `;
         return groupHTML;
     },
@@ -97,7 +101,7 @@ let SkillPage = {
             ${SkillPage.skillHTML(magic, 'magic')}
             ${SkillPage.skillHTML(darkmagic, 'darkmagic')}
         `;
-        
+
         jQuery("#page-skills").html(`<br/>${skillHTML}`);
     }
 }
