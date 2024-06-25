@@ -18,7 +18,7 @@
                 <label for="relic+{skill.io.html}" >Relic Level</label>
             </div>
             <div class="{skill.effect.html}" id="result">{skill.effect.display} {skill.effect.symbol} 1.00</div>
-            <Money amount={skill.value * 11} />
+            <p><Money amount={skill.value * 11} /></p>
         </div>
     {/each}
 </div>
@@ -62,21 +62,21 @@
       }
 
       input {
-        height: 2em;
+        height: 2.2em;
         background-color: transparent;
         background-clip: padding-box;
         color: var(--rp-text);
         border: none;
         font-size: 1rem;
         appearance: none;
-        padding: 0.5em;
+        padding: 0.7em;
       }
 
       label {
         display: block;
         position: absolute;
         top: 50%;
-        transform: translateY(-100%) scale(0.75);
+        transform: translateY(-115%) scale(0.75);
         color: var(--rp-subtle);
         background-color: var(--rp-base);
         padding: 0.2em;

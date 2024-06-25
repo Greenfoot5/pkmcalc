@@ -39,3 +39,6 @@
 {#if copper > 0}
     <span class="pkm-copper">{copper}c </span>
 {/if}
+{#if amount <= 0}
+    <span style="color: var(--rp-love)">NaN</span>
+{/if}
