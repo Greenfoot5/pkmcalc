@@ -9,15 +9,15 @@
         <div class="skill">
             <h6>{skill.io.display}</h6>
             <div class="input">
-                <input id='skill+{skill.io.html}' type="number" min="1" value={skill.value}>
+                <input id='skill+{skill.io.html}' type="number" min="1" bind:value={skill.value}>
                 <label for="skill+{skill.io.html}">Skill Level</label>
             </div>
             <div class="input">
                 <input id='relic+{skill.io.html}' type="number" min="1" value="1"/>
                 <label for="relic+{skill.io.html}" >Relic Level</label>
             </div>
-            <div class="{skill.effect.html}" id="result">{skill.effect.display} {skill.effect.symbol}</div>
-            <div class="pkm-copper">1c</div>
+            <div class="{skill.effect.html}" id="result">{skill.effect.display} {skill.effect.symbol} 1.00</div>
+            <div class="pkm-copper">{skill.baseprice * skill.value}</div>
         </div>
     {/each}
 </div>
