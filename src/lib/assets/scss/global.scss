@@ -1,0 +1,48 @@
+@use '$lib/assets/scss/typography';
+@use '$lib/assets/scss/colours';
+@use '$lib/assets/scss/vars';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*:focus {
+  outline: 2px solid var(--rp-rose);
+  outline-offset: 2px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  font-family: inherit;
+  max-width: 100%;
+}
+
+main:focus {
+  outline: none;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--rp-text);
+  font-family: var(--primaryFont);
+  background: var(--rp-base);
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+
+  @media (min-width: vars.$smMin) {
+    font-size: 1.125rem;
+  }
+
+  @media (min-width: vars.$lgMin) {
+    font-size: 1.25rem;
+  }
+}
+
+img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
