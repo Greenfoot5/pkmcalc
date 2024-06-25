@@ -41,6 +41,7 @@ let _skills = {
             effect: effectTypes.income,
             effectvalue: 0.205,
             baseprice: 1,
+            value: 1,
             io: {
                 html: "faith", display: "Faith", import: "faith"
             }
@@ -49,6 +50,7 @@ let _skills = {
             effect: effectTypes.allprice,
             effectvalue: 0.12,
             baseprice: 1,
+            value: 1,
             io: {
                 html: "zeal", display: "Zeal", import: "zeal"
             }
@@ -57,6 +59,7 @@ let _skills = {
             effect: effectTypes.happiness,
             effectvalue: 0.135,
             baseprice: 1,
+            value: 1,
             io: {
                 html: "devotion", display: "Devotion", import: "devotion"
             }
@@ -65,6 +68,7 @@ let _skills = {
             effect: effectTypes.shopprice,
             effectvalue: 0.0135,
             baseprice: 1,
+            value: 1,
             io: {
                 html: "fervour", display: "Fervour", import: "fervour"
             }
@@ -75,6 +79,7 @@ let _skills = {
             effect: effectTypes.income,
             effectvalue: 0.03,
             baseprice: 1,
+            value: 1,
             io: {
                 html: "productivity", display: "Productivity", import: "productivity"
             }
@@ -83,6 +88,7 @@ let _skills = {
             effect: effectTypes.skilleffects,
             effectvalue: 0.01,
             baseprice: 1,
+            value: 1,
             io: {
                 html: "concentration", display: "Concentration", import: "concentration"
             }
@@ -91,6 +97,7 @@ let _skills = {
             effect: effectTypes.allprice,
             effectvalue: 0.01,
             baseprice: 1,
+            value: 1,
             io: {
                 html: "bargaining", display: "Bargaining", import: "bargaining"
             }
@@ -99,6 +106,7 @@ let _skills = {
             effect: effectTypes.happiness,
             effectvalue: 0.01,
             baseprice: 1,
+            value: 1,
             io: {
                 html: "meditation", display: "Meditation", import: "meditation"
             }
@@ -109,6 +117,7 @@ let _skills = {
             effect: effectTypes.attackpower,
             effectvalue: 0.015,
             baseprice: 1,
+            value: 1,
             io: {
                 html: "strength", display: "Strength", import: "strength"
             }
@@ -117,6 +126,7 @@ let _skills = {
             effect: effectTypes.attackduration,
             effectvalue: 0.01,
             baseprice: 1,
+            value: 1,
             io: {
                 html: "musclememory", display: "Muscle Memory", import: "muscle memory"
             }
@@ -125,6 +135,7 @@ let _skills = {
             effect: effectTypes.enattackduration,
             effectvalue: 0.01,
             baseprice: 1,
+            value: 1,
             io: {
                 html: "battletactics", display: "Battle Tactics", import: "battle tactics"
             }
@@ -135,6 +146,7 @@ let _skills = {
             effect: effectTypes.allprice,
             effectvalue: 0.01,
             baseprice: 1,
+            value: 1,
             io: {
                 html: "manacontrol", display: "Mana Control", import: "mana control"
             }
@@ -143,6 +155,7 @@ let _skills = {
             effect: effectTypes.fanatacismgain,
             effectvalue: 0.02,
             baseprice: 1,
+            value: 1,
             io: {
                 html: "lifeessence", display: "Life Essence", import: "life essence"
             }
@@ -151,6 +164,7 @@ let _skills = {
             effect: effectTypes.attackresistance,
             effectvalue: 0.005,
             baseprice: 1,
+            value: 1,
             io: {
                 html: "resilience", display: "Resilience", import: "resilience"
             }
@@ -159,6 +173,7 @@ let _skills = {
             effect: effectTypes.greed,
             effectvalue: 0.04,
             baseprice: 1,
+            value: 1,
             io: {
                 html: "materialism", display: "Materialism", import: "materialism"
             }
@@ -169,6 +184,7 @@ let _skills = {
             effect: effectTypes.happiness,
             effectvalue: 0.01,
             baseprice: 1,
+            value: 1,
             io: {
                 html: "fanaticaldevotion", display: "Fanatical Devotion", import: "fanatical devotion"
             }
@@ -177,6 +193,7 @@ let _skills = {
             effect: effectTypes.fanatacismgain,
             effectvalue: 0.03,
             baseprice: 1,
+            value: 1,
             io: {
                 html: "ardentbelief", display: "Ardent Belief", import: "ardent belief"
             }
@@ -185,6 +202,7 @@ let _skills = {
             effect: effectTypes.allprice,
             effectvalue: 0.01,
             baseprice: 1,
+            value: 1,
             io: {
                 html: "zealousconviction", display: "Zealous Conviction", import: "zealous conviction"
             }
@@ -193,6 +211,7 @@ let _skills = {
             effect: effectTypes.happiness,
             effectvalue: 0.01,
             baseprice: 1,
+            value: 1,
             io: {
                 html: "extremepiety", display: "Extreme Piety", import: "extreme piety"
             }
@@ -201,6 +220,7 @@ let _skills = {
             effect: effectTypes.fanatacismgain,
             effectvalue: 0.01,
             baseprice: 1,
+            value: 1,
             io: {
                 html: "absolutefaith", display: "Absolute Faith", import: "absolute faith"
             }
@@ -209,6 +229,7 @@ let _skills = {
             effect: effectTypes.income,
             effectvalue: 0.002,
             baseprice: 1,
+            value: 1,
             io: {
                 html: "devoutmastery", display: "Devout Mastery", import: "devout mastery"
             }
@@ -217,6 +238,7 @@ let _skills = {
             effect: effectTypes.shopprice,
             effectvalue: 0.003,
             baseprice: 1,
+            value: 1,
             io: {
                 html: "doggedperseverance", display: "Dogged Perseverance", import: "dogged perseverance"
             }
@@ -225,6 +247,7 @@ let _skills = {
             effect: effectTypes.greed,
             effectvalue: 0.0027,
             baseprice: 1,
+            value: 1,
             io: {
                 html: "blazingfervour", display: "Blazing Fervor", import: "blazing fervor"
             }

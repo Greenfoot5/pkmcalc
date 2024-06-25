@@ -6,18 +6,18 @@
 <h4>{title}</h4>
 <div class="skills">
     {#each skills as skill}
-        <div class="skill grid grid-cols-5 items-center gap-x-4 py-2">
-            <h6 class="flex-auto">{skill.io.display}</h6>
-            <label class="grid grid-rows-2 ring-2 rounded-md">
-                Skill Level
-                <input type="number" min="1" value="1">
-            </label>
-            <label class="grid grid-rows-2">
-                Relic Level
-                <input name="relic" type="number" min="1" value="1"/>
-            </label>
-            <div class="flex-auto {skill.effect.html}" id="result">{skill.effect.display} {skill.effect.symbol} 1.00</div>
-            <div class="pkm-copper flex-auto">1c</div>
+        <div class="skill">
+            <h6>{skill.io.display}</h6>
+            <div class="input">
+                <input id='skill+{skill.io.html}' type="number" min="1" value={skill.value}>
+                <label for="skill+{skill.io.html}">Skill Level</label>
+            </div>
+            <div class="input">
+                <input id='relic+{skill.io.html}' type="number" min="1" value="1"/>
+                <label for="relic+{skill.io.html}" >Relic Level</label>
+            </div>
+            <div class="{skill.effect.html}" id="result">{skill.effect.display} {skill.effect.symbol}</div>
+            <div class="pkm-copper">1c</div>
         </div>
     {/each}
 </div>
@@ -40,21 +40,96 @@
     .skill {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      place-items: center;
+      column-gap: 1em;
+      padding: 0.5em;
     }
 
     .input {
-      margin: 1em;
-      height: 2em;
-    }
+      position: relative;
 
-    label {
-      color: var(--rp-subtle);
+      border-radius: 0.375em;
+      border-color: var(--rp-gold);
+      border-width: 1em;
+      box-shadow: 0 0 0 0.2em var(--rp-muted);
+
+      :focus {
+        border-radius: 0.375em;
+        border-color: var(--rp-rose);
+        border-width: 1em;
+        box-shadow: 0 0 0 0.3em var(--rp-rose);
+      }
 
       input {
-        background-color: var(--rp-base);
+        height: 2em;
+        background-color: transparent;
+        background-clip: padding-box;
         color: var(--rp-text);
         border: none;
+        font-size: 1rem;
+        appearance: none;
+        padding: 0.5em;
+      }
 
+      label {
+        display: block;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-100%) scale(0.75);
+        color: var(--rp-subtle);
+        background-color: var(--rp-base);
+        padding: 0.2em;
       }
     }
+
+    input:invalid {
+      color: var(--rp-love);
+    }
+
+    //label {
+    //  color: var(--rp-subtle);
+    //  font-size: 0.75rem;
+    //
+    //  position: absolute;
+    //  inset: 1rem 0.375rem;
+    //  content: "";
+    //  background-color: var(--bs-body-bg);
+    //  border-radius: var(--bs-border-radius);
+    //
+    //  :focus {
+    //    box-shadow: 0 0 0 0.2em var(--rp-foam);
+    //  }
+    //}
+
+      //input {
+      //  background-color: transparent;
+      //  background-clip: padding-box;
+      //  color: var(--rp-text);
+      //  border: none;
+      //  font-size: 1rem;
+      //  appearance: none;
+      //
+      //  display: block;
+      //
+      //  border-radius: 0.375em;
+      //  border-color: var(--rp-gold);
+      //  border-width: 1em;
+      //  box-shadow: 0 0 0 0.2em var(--rp-muted);
+      //
+      //  :focus {
+      //    box-shadow: 0 0 0 0.2em var(--rp-foam);
+      //  }
+      //
+      //  label::before {
+      //    color: var(--rp-subtle);
+      //    font-size: 0.75rem;
+      //
+      //    z-index: 5;
+      //    position: absolute;
+      //
+      //    //position: absolute;
+      //    //inset: 1rem 0.375rem;
+      //    content: ""
+      //  }
+      //}
 </style>

@@ -14,6 +14,7 @@
 
       p {
         padding: 1em;
+        margin: 0;
       }
     }
 </style>
