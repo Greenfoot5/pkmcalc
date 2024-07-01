@@ -1,49 +1,4 @@
-import { derived } from 'svelte/store';
-import { faith, zeal, devotion, fervour,
-    productivity, concentration, bargaining, meditation,
-    strength, muscleMemory, battleTactics,
-    manaControl, lifeEssence, resilience, materialism,
-    fanaticalDevotion, ardentBelief, zealousConviction, extremePiety,
-    absoluteFaith, devoutMastery, doggedPerseverance, blazingFervour} from '$lib/data/skill_levels.js';
-
-const effectTypes = {
-    income: {
-        symbol: "×", html: "pkm-emerald", display: "Income / day"
-    },
-    allPrice: {
-        symbol: "÷", html: "pkm-gold", display: "All prices"
-    },
-    happiness: {
-        symbol: "×", html: "pkm-amethyst", display: "Happiness"
-    },
-    shopPrice: {
-        symbol: "÷", html: "pkm-shop-price", display: "Shop prices"
-    },
-    skillEffect: {
-        symbol: "×", html: "pkm-skill-effect", display: "Skill effects"
-    },
-    atkPower: {
-        symbol: "×", html: "pkm-gold", display: "Attack power",
-    },
-    atkDuration: {
-        symbol: "÷", html: "pkm-atk-dur", display: "Attack duration",
-    },
-    enAtkDuration: {
-        symbol: "×", html: "pkm-en-atk-dur", display: "En attack duration",
-    },
-    atkResistance: {
-        symbol: "×", html: "pkm-atk-res", display: "Attack resistance",
-    },
-    fanaGain: {
-        symbol: "×", html: "pkm-fana", display: "Fanatacism gain",
-    },
-    greed: {
-        symbol: "×", html: "pkm-res", display: "Greed",
-    },
-    bonusRelicLevel: {
-        symbol: "%", html: "pkm-skill-relic", display: "Bonus Relic Level",
-    }
-}
+import { effectTypes} from "$lib/data/effects.js";
 
 export let skills = {
     theOrder: [
@@ -241,21 +196,3 @@ export let skills = {
         }
     ]
 };
-
-export let skillEffect = derived([concentration],
-    ([$concentration]) => (($concentration - 1) * skills.fundamentals[1].effectValue + 1));
-
-export let income = derived([faith, productivity, devoutMastery, skillEffect],
-    ([$faith, $productivity, $devoutMastery, $skillEffect]) =>
-        (($faith - 1) * skills.theOrder[0].effectValue + 1) *
-        (($productivity - 1) * skills.fundamentals[0].effectValue + 1) *
-        (($devoutMastery - 1) * skills.darkMagic[5].effectValue + 1)
-        * $skillEffect);
-
-export let happiness = derived([devotion, meditation, fanaticalDevotion, extremePiety, skillEffect],
-    ([$devotion, $meditation, $fanaticalDevotion, $extremePiety, $skillEffect]) =>
-        (($devotion - 1) * skills.theOrder[1].effectValue + 1) *
-        (($meditation - 1) * skills.fundamentals[1].effectValue + 1) *
-        (($fanaticalDevotion - 1) * skills.darkMagic[0].effectValue + 1) *
-        (($extremePiety - 1) * skills.darkMagic[3].effectValue + 1)
-        * $skillEffect);

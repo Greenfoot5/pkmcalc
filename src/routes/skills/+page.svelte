@@ -2,8 +2,9 @@
     import Skill from "$lib/components/Skill.svelte";
     import Money from "$lib/components/Money.svelte";
 
-    import { skills, income } from "$lib/data/skills.js";
+    import { skills } from "$lib/data/skills.js";
     import { levels } from "$lib/data/skill_levels.js";
+    import { income } from "$lib/data/stats.js";
 </script>
 
 <nav id="header">
