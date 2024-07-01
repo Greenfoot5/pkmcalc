@@ -4,7 +4,8 @@
 
     import { skills } from "$lib/data/skills.js";
     import { levels } from "$lib/data/skill_levels.js";
-    import { income } from "$lib/data/stats.js";
+    import { income, fanaGain } from "$lib/data/stats.js";
+    import {display} from "$lib/utils.ts";
 </script>
 
 <nav id="header">
@@ -25,7 +26,7 @@
 
     <div id="stats" class="grid grid-cols-4 place-items-center lg:px-32">
         <div>Income: <Money amount={$income}/> </div>
-        <div>Fanaticism: <span class="pkm-fana">0</span> Gain: (<span class="pkm-fana">1</span>)</div>
+        <div>Fanaticism: <span class="pkm-fana">0</span> Gain: (<span class="pkm-fana">{display($fanaGain)}</span>)</div>
         <div>Total Brands: <span class="pkm-brands">0</span></div>
         <div>Relic Discount: <span class="pkm-brands">1</span></div>
     </div>
