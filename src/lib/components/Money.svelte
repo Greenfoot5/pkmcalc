@@ -1,7 +1,7 @@
 <script lang="ts">
     export let amount = 0;
 
-    $: copper = amount % 1e2;
+    $: copper = Math.floor(amount % 1e2);
     $: silver = Math.floor((amount % 1e4 - copper) / 1e2);
     $: gold = Math.floor((amount % 1e6 - silver) / 1e4);
     $: platinum = Math.floor((amount % 1e8 - gold) / 1e6);
@@ -39,6 +39,6 @@
 {#if copper > 0}
     <span class="pkm-copper">{copper}c </span>
 {/if}
-{#if amount <= 0}
-    <span style="color: var(--rp-love)">NaN</span>
+{#if amount === undefined || isNaN(amount) || amount <= 0}
+    <span style="color: var(--rp-love)">N/A</span>
 {/if}

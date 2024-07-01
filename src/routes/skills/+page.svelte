@@ -1,8 +1,9 @@
 <script>
     import Skill from "$lib/components/Skill.svelte";
-
-    import skills from "$lib/data/skills.js";
     import Money from "$lib/components/Money.svelte";
+
+    import { skills, income } from "$lib/data/skills.js";
+    import { levels } from "$lib/data/skill_levels.js";
 </script>
 
 <nav id="header">
@@ -22,7 +23,7 @@
     </div>
 
     <div id="stats" class="grid grid-cols-4 place-items-center lg:px-32">
-        <div>Income: <Money amount={1} /> </div>
+        <div>Income: <Money amount={$income}/> </div>
         <div>Fanaticism: <span class="pkm-fana">0</span> Gain: (<span class="pkm-fana">1</span>)</div>
         <div>Total Brands: <span class="pkm-brands">0</span></div>
         <div>Relic Discount: <span class="pkm-brands">1</span></div>
@@ -30,11 +31,11 @@
 </nav>
 
 <div id="skills">
-    <Skill title="The Order" skills={skills.theorder}/>
-    <Skill title="Fundamentals" skills={skills.fundamentals}/>
-    <Skill title="Combat" skills={skills.combat}/>
-    <Skill title="Magic" skills={skills.magic}/>
-    <Skill title="Dark Magic" skills={skills.darkmagic}/>
+    <Skill title="The Order" skills={skills.theOrder} levels={levels.theOrder} />
+    <Skill title="Fundamentals" skills={skills.fundamentals} levels={levels.fundamentals} />
+    <Skill title="Combat" skills={skills.combat} levels={levels.combat} />
+    <Skill title="Magic" skills={skills.magic} levels={levels.magic} />
+    <Skill title="Dark Magic" skills={skills.darkMagic} levels={levels.darkMagic} />
 </div>
 
 <div id="content" class="text-red-500 hidden">

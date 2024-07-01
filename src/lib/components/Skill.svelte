@@ -1,24 +1,36 @@
 <script>
+    import { writable } from "svelte/store";
+    import { display } from "$lib/utils.ts";
+
     import Money from "./Money.svelte"
+    import InputSkill from "$lib/components/InputSkill.svelte";
+
     export let title = "";
     export let skills = [];
+    export let levels = [];
+
+    let currentLevels = [];
+    levels.forEach((level, i) =>
+    {
+        currentLevels.push(1);
+        level.subscribe((value) => {
+            currentLevels[i] = value;
+        })
+    });
 </script>
 
 <h4>{title}</h4>
 <div class="skills">
-    {#each skills as skill}
+    {#each skills as skill, i}
         <div class="skill">
             <h6>{skill.io.display}</h6>
-            <div class="input">
-                <input id='skill+{skill.io.html}' type="number" min="1" bind:value={skill.value}>
-                <label for="skill+{skill.io.html}">Skill Level</label>
+            <InputSkill id="skill+{skill.io.html}" data={levels[i]} placeholder="Skill Level"/>
+            <InputSkill id="relic+{skill.io.html}" data={writable(1)} placeholder="Relic Level"/>
+            <div class="{skill.effect.html}" id="result">
+<!--                TODO - invalid skillValue causes incorrect value-->
+                {skill.effect.display} {skill.effect.symbol} {display((currentLevels[i] - 1) * skill.effectValue + 1)}
             </div>
-            <div class="input">
-                <input id='relic+{skill.io.html}' type="number" min="1" value="1"/>
-                <label for="relic+{skill.io.html}" >Relic Level</label>
-            </div>
-            <div class="{skill.effect.html}" id="result">{skill.effect.display} {skill.effect.symbol} 1.00</div>
-            <p><Money amount={skill.value * 11} /></p>
+            <p><Money amount={currentLevels[i] * 11} /></p>
         </div>
     {/each}
 </div>
@@ -35,7 +47,7 @@
   }
 
     .skills {
-      padding: 1em;
+      padding: 0.5em;
     }
 
     .skill {
@@ -43,47 +55,6 @@
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
       place-items: center;
       column-gap: 1em;
-      padding: 0.5em;
-    }
-
-    .input {
-      position: relative;
-
-      border-radius: 0.375em;
-      border-color: var(--rp-gold);
-      border-width: 1em;
-      box-shadow: 0 0 0 0.2em var(--rp-muted);
-
-      :focus {
-        border-radius: 0.375em;
-        border-color: var(--rp-rose);
-        border-width: 1em;
-        box-shadow: 0 0 0 0.3em var(--rp-rose);
-      }
-
-      input {
-        height: 2.2em;
-        background-color: transparent;
-        background-clip: padding-box;
-        color: var(--rp-text);
-        border: none;
-        font-size: 1rem;
-        appearance: none;
-        padding: 0.7em;
-      }
-
-      label {
-        display: block;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-115%) scale(0.75);
-        color: var(--rp-subtle);
-        background-color: var(--rp-base);
-        padding: 0.2em;
-      }
-    }
-
-    input:invalid {
-      color: var(--rp-love);
+      padding: 0;
     }
 </style>
