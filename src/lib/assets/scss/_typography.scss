@@ -25,37 +25,49 @@ h1 {
     bottom: 0;
   }
 
-  @media (min-width: vars.$smMin) {
-    font-size: 3rem;
-  }
-
-  @media (min-width: vars.$lgMin) {
-    font-size: 3.2rem;
+  @media (max-width: vars.$smMax) {
+    font-size: 1.6rem;
   }
 }
 
 h2 {
   font-size: 2.0rem;
 
-  @media (min-width: vars.$smMin) {
-    font-size: 2.2rem;
+  @media (max-width: vars.$smMax) {
+    font-size: 1.4rem;
   }
 }
 
 h3 {
   font-size: 1.8rem;
+
+  @media (max-width: vars.$smMax) {
+    font-size: 1.2rem;
+  }
 }
 
 h4 {
   font-size: 1.6rem;
+
+  @media (max-width: vars.$smMax) {
+    font-size: 1rem;
+  }
 }
 
 h5 {
   font-size: 1.35rem;
+
+  @media (max-width: vars.$smMax) {
+    font-size: 0.95rem;
+  }
 }
 
 h6 {
   font-size: 1.1rem;
+
+  @media (max-width: vars.$smMax) {
+    font-size: 0.8rem;
+  }
 }
 
 a {

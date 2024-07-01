@@ -38,7 +38,7 @@
             padding: 0.7em;
 
             @media(max-width: vars.$mdMax) {
-              width: 10em;
+              width: 6em;
             }
         }
 
