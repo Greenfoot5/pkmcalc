@@ -18,10 +18,10 @@
             <span>Stats</span>
         </div>
         <div class="grow" />
-        <div class="justify-self-end">
-            <input class="form-control me-2" type="search" id="user-id" placeholder="Used ID found in menu" aria-label="Import">
-            <button class="btn btn-outline-success" type="button" onclick="Import.getData(jQuery('#user-id').val())">Import</button>
-        </div>
+<!--        <div class="justify-self-end">-->
+<!--            <input class="form-control me-2" type="search" id="user-id" placeholder="Used ID found in menu" aria-label="Import">-->
+<!--            <button class="btn btn-outline-success" type="button" onclick="Import.getData(jQuery('#user-id').val())">Import</button>-->
+<!--        </div>-->
     </div>
 
     <div id="stats" class="grid grid-cols-4 place-items-center lg:px-32">

@@ -26,10 +26,10 @@
 <div class="skills">
     {#each skills as skill, i}
         <div class="skill">
-            <h6>{skill.io.display}</h6>
-            <InputSkill id="skill+{skill.io.html}" data={levels[i]} placeholder="Skill Level"/>
-            <InputSkill id="relic+{skill.io.html}" data={writable(1)} placeholder="Relic Level"/>
-            <div class="{skill.effect.html}" id="result">
+            <h6 class="span">{skill.io.display}</h6>
+            <InputSkill style="grid-column-end: 2" id="skill+{skill.io.html}" data={levels[i]} placeholder="Skill Level"/>
+            <InputSkill style="grid-column-end: 2" id="relic+{skill.io.html}" data={writable(1)} placeholder="Relic Level"/>
+            <div class="{skill.effect.html} span" id="result">
 <!--                TODO - invalid skillValue causes incorrect value-->
                 {skill.effect.display} {skill.effect.symbol} {
                 display((currentLevels[i] - 1) * skill.effectValue *
@@ -37,12 +37,15 @@
                     + 1)
             }
             </div>
-            <p><Money amount={currentLevels[i] * 11} /></p>
+            <p class="span"><Money amount={currentLevels[i] * 11} /></p>
         </div>
+        <hr class="small">
     {/each}
 </div>
 
 <style lang="scss">
+  @use "$lib/assets/scss/vars";
+
   h6 {
     color: var(--rp-foam);
   }
@@ -61,7 +64,24 @@
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
       place-items: center;
+      place-content: space-around;
       column-gap: 1em;
       padding: 0;
+
+      @media (max-width: vars.$smMax) {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+      }
     }
+
+    .span {
+      @media (max-width: vars.$smMax) {
+        grid-column: span 3 / span 3;
+      }
+    }
+
+  .small {
+    @media (max-width: vars.$smMax) {
+      visibility: hidden;
+    }
+  }
 </style>
