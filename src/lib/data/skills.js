@@ -242,17 +242,20 @@ export let skills = {
     ]
 };
 
-export let skillEffect = derived([])
+export let skillEffect = derived([concentration],
+    ([$concentration]) => (($concentration - 1) * skills.fundamentals[1].effectValue + 1));
 
-export let income = derived([faith, productivity, devoutMastery],
-    ([$faith, $productivity, $devoutMastery]) =>
+export let income = derived([faith, productivity, devoutMastery, skillEffect],
+    ([$faith, $productivity, $devoutMastery, $skillEffect]) =>
         (($faith - 1) * skills.theOrder[0].effectValue + 1) *
         (($productivity - 1) * skills.fundamentals[0].effectValue + 1) *
-        (($devoutMastery - 1) * skills.darkMagic[5].effectValue + 1));
+        (($devoutMastery - 1) * skills.darkMagic[5].effectValue + 1)
+        * $skillEffect);
 
-export let happiness = derived([devotion, meditation, fanaticalDevotion, extremePiety],
-    ([$devotion, $meditation, $fanaticalDevotion, $extremePiety]) =>
+export let happiness = derived([devotion, meditation, fanaticalDevotion, extremePiety, skillEffect],
+    ([$devotion, $meditation, $fanaticalDevotion, $extremePiety, $skillEffect]) =>
         (($devotion - 1) * skills.theOrder[1].effectValue + 1) *
         (($meditation - 1) * skills.fundamentals[1].effectValue + 1) *
         (($fanaticalDevotion - 1) * skills.darkMagic[0].effectValue + 1) *
-        (($extremePiety - 1) * skills.darkMagic[3].effectValue + 1));
+        (($extremePiety - 1) * skills.darkMagic[3].effectValue + 1)
+        * $skillEffect);
