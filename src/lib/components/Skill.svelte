@@ -39,7 +39,6 @@
             </div>
             <p class="span"><Money amount={currentLevels[i] * 11} /></p>
         </div>
-        <hr class="small">
     {/each}
 </div>
 
@@ -57,7 +56,9 @@
   }
 
     .skills {
-      padding: 0.5em;
+      @media (max-width: vars.$smMax) {
+        padding-bottom: 2em;
+      }
     }
 
     .skill {
@@ -70,6 +71,7 @@
 
       @media (max-width: vars.$smMax) {
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        padding: 0 0 2em 1em;
       }
     }
 
@@ -78,10 +80,4 @@
         grid-column: span 3 / span 3;
       }
     }
-
-  .small {
-    @media (max-width: vars.$smMax) {
-      visibility: hidden;
-    }
-  }
 </style>
