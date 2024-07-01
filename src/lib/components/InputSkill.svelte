@@ -5,11 +5,13 @@
 </script>
 
 <div class="input">
-    <input id="{id}" type="number" min="1" bind:value={$data} />
+    <input id="{id}" type="number" min="1" bind:value={$data}/>
     <label for="{id}">{placeholder}</label>
 </div>
 
 <style lang="scss">
+    @use '$lib/assets/scss/vars';
+
     .input {
         position: relative;
 
@@ -34,6 +36,10 @@
             font-size: 1rem;
             appearance: none;
             padding: 0.7em;
+
+            @media(max-width: vars.$mdMax) {
+              width: 10em;
+            }
         }
 
         label {
