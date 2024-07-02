@@ -6,32 +6,38 @@
     import { levels } from "$lib/data/skill_levels.js";
     import { income, fanaGain } from "$lib/data/stats.js";
     import {display} from "$lib/utils.ts";
+
+    let page = "skills";
 </script>
 
 <nav id="header">
-    <div class="flex flex-row content-center flex-nowrap pb-4 pl-4 pr-8">
-        <h2 class="lg:pr-32 pr-4">PK:M Calculator</h2>
-        <div class="grid grid-cols-4 place-items-center gap-x-4">
+    <div class="nav">
+        <h2>PK:M Calculator</h2>
+        <div>
             <span style="color: var(--rp-rose)">Skills</span>
             <span>Shop</span>
             <span>Talents</span>
             <span>Stats</span>
         </div>
-        <div class="grow" />
+        <span/>
 <!--        <div class="justify-self-end">-->
 <!--            <input class="form-control me-2" type="search" id="user-id" placeholder="Used ID found in menu" aria-label="Import">-->
 <!--            <button class="btn btn-outline-success" type="button" onclick="Import.getData(jQuery('#user-id').val())">Import</button>-->
 <!--        </div>-->
     </div>
 
-    <div id="stats" class="grid grid-cols-4 place-items-center lg:px-32">
+    <div id="stats">
         <div>Income: <Money amount={$income}/> </div>
-        <div>Fanaticism: <span class="pkm-fana">0</span> Gain: (<span class="pkm-fana">{display($fanaGain)}</span>)</div>
-        <div>Total Brands: <span class="pkm-brands">0</span></div>
+        <div>
+            <span>Fanaticism: <span class="pkm-fana">0</span></span>
+            <span>Gain: (<span class="pkm-fana">{display($fanaGain)}</span>)</span>
+        </div>
+        <div>Brands: <span class="pkm-brands">0</span></div>
         <div>Relic Discount: <span class="pkm-brands">1</span></div>
     </div>
 </nav>
 
+{#if page === "skills"}
 <div id="skills">
     <Skill title="The Order" skills={skills.theOrder} levels={levels.theOrder} />
     <Skill title="Fundamentals" skills={skills.fundamentals} levels={levels.fundamentals} />
@@ -39,6 +45,7 @@
     <Skill title="Magic" skills={skills.magic} levels={levels.magic} />
     <Skill title="Dark Magic" skills={skills.darkMagic} levels={levels.darkMagic} />
 </div>
+{/if}
 
 <div id="content" class="text-red-500 hidden">
     <nav class="container-fluid navbar sticky-top navbar-expand-lg navbar-light bg-dark border-bottom border-1 border-warning text-emerald-400">
@@ -96,6 +103,8 @@
 </div>
 
 <style lang="scss">
+    @use "$lib/assets/scss/vars.scss";
+
     #header {
         margin: 0;
         padding: 1em 0.5em;
@@ -103,10 +112,46 @@
 
         h2 {
             margin: 0;
+
+            @media (min-width: vars.$lgMin) {
+                padding-right: 2em;
+            }
+        }
+
+        .nav {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            flex-wrap: nowrap;
+            padding: 0 2em 4em 2em;
+
+            @media (max-width: vars.$smMax) {
+                padding-bottom: 1em;
+            }
+
+            div {
+                display: grid;
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                place-items: center;
+                column-gap: 1em;
+            }
+
+            span {
+                flex-grow: 1;
+            }
         }
     }
 
     #stats {
-      color: var(--rp-subtle);
+        color: var(--rp-subtle);
+
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        place-items: center;
+        text-align: center;
+
+        @media (min-width: vars.$lgMin) {
+            padding: 0 8em;
+        }
     }
 </style>
