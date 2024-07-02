@@ -1,7 +1,11 @@
+<script>
+    import { github, patreon } from "$lib/config.js";
+</script>
+
 <div>
     <p>
-        Psst, hey, check out the <a href="https://github.com/hoekthemad/pkmcalc" target="_blank">GitHub</a>
-        or consider donating to help keep this running on <a href="https://www.patreon.com/HoeksHome"
+        Psst, hey, check out the <a href={github} target="_blank">GitHub</a>
+        or consider donating to help keep this running on <a href={patreon}
                                                              target="_blank">Patreon</a>
     </p>
 </div>
