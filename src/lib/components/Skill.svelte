@@ -31,7 +31,6 @@
                 <InputSkill style="grid-column-end: 2" id="skill+{skill.io.html}" data={levels[i]} placeholder="Skill Level"/>
                 <InputSkill style="grid-column-end: 2" id="relic+{skill.io.html}" data={writable(1)} placeholder="Relic Level"/>
                 <div class="{skill.effect.html}" id="result">
-    <!--                TODO - invalid skillValue causes incorrect value-->
                     {skill.effect.display} {skill.effect.symbol} {
                         display((currentLevels[i] - 1) * skill.effectValue *
                         (skill.io.html === overall.fundamentals[1].io.html ? 1 : $skillEffect)
