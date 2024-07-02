@@ -14,10 +14,10 @@
     <div class="nav">
         <h2>PK:M Calculator</h2>
         <div>
-            <span style="color: var(--rp-rose)">Skills</span>
-            <span>Shop</span>
-            <span>Talents</span>
-            <span>Stats</span>
+            <button class={page === "skills" ? "active-link" : ""} on:click={page === "skills"}>Skills</button>
+            <button class={page === "shop" ? "active-link" : ""}>Shop</button>
+            <button class={page === "talents" ? "active-link" : ""}>Talents</button>
+            <button class={page === "stats" ? "active-link" : ""}>Stats</button>
         </div>
         <span/>
 <!--        <div class="justify-self-end">-->
@@ -139,6 +139,13 @@
             span {
                 flex-grow: 1;
             }
+
+            button {
+                appearance: none;
+                background: transparent;
+                border: none;
+                color: inherit;
+            }
         }
     }
 
@@ -153,5 +160,9 @@
         @media (min-width: vars.$lgMin) {
             padding: 0 8em;
         }
+    }
+
+    .active-link {
+        color: var(--rp-rose) !important;
     }
 </style>
