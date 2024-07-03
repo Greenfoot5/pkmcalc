@@ -14,10 +14,10 @@
     <div class="nav">
         <h2>PK:M Calculator</h2>
         <div>
-            <button class={page === "skills" ? "active-link" : ""} on:click={page === "skills"}>Skills</button>
-            <button class={page === "shop" ? "active-link" : ""}>Shop</button>
-            <button class={page === "talents" ? "active-link" : ""}>Talents</button>
-            <button class={page === "stats" ? "active-link" : ""}>Stats</button>
+            <button class={page === "skills" ? "active-link" : ""} on:click={() => {page = "skills"}}>Skills</button>
+            <button class={page === "shop" ? "active-link" : ""} on:click={() => {page = "shop"}}>Shop</button>
+            <button class={page === "talents" ? "active-link" : ""} on:click={() => {page = "talents"}}>Talents</button>
+            <button class={page === "stats" ? "active-link" : ""} on:click={() => {page = "stats"}}>Stats</button>
         </div>
         <span/>
 <!--        <div class="justify-self-end">-->
@@ -146,6 +146,11 @@
                 border: none;
                 color: inherit;
                 font-size: 1em;
+                cursor: pointer;
+
+                &:hover {
+                    color: var(--rp-foam);
+                }
             }
         }
     }
