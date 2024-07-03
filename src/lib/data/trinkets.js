@@ -1,98 +1,100 @@
-const _trinkets = {
-    coin_pouch: {
-        baseprice: 59,
+import { effectTypes } from "$lib/data/effects.js";
+
+export const trinkets = [
+    {
+        basePrice: 59,
         effect: effectTypes.income,
-        effectvalue: 2.5,
+        effectValue: 2.5,
         io: {
             html: "coin_pouch", display: "Coin Pouch", import: "coin pouch"
         }
     },
-    wooden_crown: {
-        baseprice: 166772,
-        effect: effectTypes.shopprice,
-        effectvalue: 2,
+    {
+        basePrice: 166772,
+        effect: effectTypes.shopPrice,
+        effectValue: 2,
         io: {
             html: "wooden_crown", display: "Wooden Crown", import: "wooden crown"
         }
     },
-    dumbells: {
-        baseprice: 8862938,
-        effect: effectTypes.attackduration,
-        effectvalue: 1.5,
+    {
+        basePrice: 8862938,
+        effect: effectTypes.atkDuration,
+        effectValue: 1.5,
         io: {
             html: "dumbells", display: "Dumbells", import: "dumbells"
         }
     },
-    lucky_charm: {
-        baseprice: 471012870,
+    {
+        basePrice: 471012870,
         effect: effectTypes.income,
-        effectvalue: 3,
+        effectValue: 3,
         io: {
             html: "lucky_charm", display: "Lucky Charm", import: "lucky charm"
         }
     },
-    soulbound_locket: {
-        baseprice: 1507241183,
+    {
+        basePrice: 1507241183,
         effect: effectTypes.greed,
-        effectvalue: 2,
+        effectValue: 2,
         io: {
             html: "soulbound_locket", display: "Soulbound Locket", import: "soulbound locket"
         }
     },
-    pendulum: {
-        baseprice: 25031555050,
-        effect: effectTypes.bonusreliclevel,
-        effectvalue: 0.2,
+    {
+        basePrice: 25031555050,
+        effect: effectTypes.bonusRelicLevel,
+        effectValue: 0.2,
         io: {
             html: "pendulum", display: "Pendulum", import: "pendulum"
         }
     },
-    silver_ring: {
-        baseprice: 1330279464729,
-        effect: effectTypes.allprice,
-        effectvalue: 2,
+    {
+        basePrice: 1330279464729,
+        effect: effectTypes.allPrice,
+        effectValue: 2,
         io: {
             html: "silver_ring", display: "Silver Ring", import: "silver ring"
         }
     },
-    ceremony_knife: {
-        baseprice: 70696504901511,
+    {
+        basePrice: 70696504901511,
         effect: effectTypes.happiness,
-        effectvalue: 1.5,
+        effectValue: 1.5,
         io: {
             html: "ceremony_knife", display: "Ceremony Knife", import: "ceremony knife"
         }
     },
-    magic_pebbles: {
-        baseprice: 3757102126136372,
-        effect: effectTypes.shopprice,
-        effectvalue: 1.5,
+    {
+        basePrice: 3757102126136372,
+        effect: effectTypes.shopPrice,
+        effectValue: 1.5,
         io: {
             html: "magic_pebbles", display: "Magic Pebbles", import: "magic pebbles"
         }
     },
-    shiny_lamp: {
-        baseprice: 199667811101603970n,
-        effect: effectTypes.allprice,
-        effectvalue: 2,
+    {
+        basePrice: 199667811101603970,
+        effect: effectTypes.allPrice,
+        effectValue: 2,
         io: {
             html: "shiny_lamp", display: "Shiny Lamp", import: "shiny lamp"
         }
     },
-    golden_hourglass: {
-        baseprice: 10611166119964754000n,
-        effect: effectTypes.bonusreliclevel,
-        effectvalue: 1.5,
+    {
+        basePrice: 10611166119964754000,
+        effect: effectTypes.bonusRelicLevel,
+        effectValue: 1.5,
         io: {
             html: "golden_hourglass", display: "Golden Hourglass", import: "golden hourglass"
         }
     },
-    mystic_satchel: {
-        baseprice: 563920873396019130000n,
+    {
+        basePrice: 563920873396019130000,
         effect: effectTypes.greed,
-        effectvalue: 1.5,
+        effectValue: 1.5,
         io: {
             html: "mystic_satchel", display: "Mystic Satchel", import: "mystic satchel"
         }
     }
-}
+]

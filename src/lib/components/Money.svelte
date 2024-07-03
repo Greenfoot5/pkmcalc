@@ -36,9 +36,9 @@
 {#if silver > 0}
     <span class="pkm-silver">{silver}s </span>
 {/if}
-{#if copper > 0}
+{#if copper > 0 || amount === 0}
     <span class="pkm-copper">{copper}c </span>
 {/if}
-{#if amount === undefined || isNaN(amount) || amount <= 0}
+{#if amount === undefined || isNaN(amount) || amount < 0}
     <span style="color: var(--rp-love)">N/A</span>
 {/if}

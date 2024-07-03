@@ -1,13 +1,18 @@
 <script>
     import Skill from "$lib/components/Skill.svelte";
+    import Shop from "$lib/components/Shop.svelte";
     import Money from "$lib/components/Money.svelte";
 
     import { skills } from "$lib/data/skills.js";
     import { levels } from "$lib/data/skill_levels.js";
     import { income, fanaGain } from "$lib/data/stats.js";
-    import {display} from "$lib/utils.ts";
+    import { properties } from "$lib/data/properties.js";
+    import { trinkets } from "$lib/data/trinkets.js";
+    import { weapons } from "$lib/data/weapons.js";
+    import { servants } from "$lib/data/servants.js";
+    import { display } from "$lib/utils.ts";
 
-    let page = "skills";
+    let page = "shop";
 </script>
 
 <nav id="header">
@@ -38,13 +43,20 @@
 </nav>
 
 {#if page === "skills"}
-<div id="skills">
-    <Skill title="The Order" skills={skills.theOrder} levels={levels.theOrder} />
-    <Skill title="Fundamentals" skills={skills.fundamentals} levels={levels.fundamentals} />
-    <Skill title="Combat" skills={skills.combat} levels={levels.combat} />
-    <Skill title="Magic" skills={skills.magic} levels={levels.magic} />
-    <Skill title="Dark Magic" skills={skills.darkMagic} levels={levels.darkMagic} />
-</div>
+    <div id="skills">
+        <Skill title="The Order" skills={skills.theOrder} levels={levels.theOrder} />
+        <Skill title="Fundamentals" skills={skills.fundamentals} levels={levels.fundamentals} />
+        <Skill title="Combat" skills={skills.combat} levels={levels.combat} />
+        <Skill title="Magic" skills={skills.magic} levels={levels.magic} />
+        <Skill title="Dark Magic" skills={skills.darkMagic} levels={levels.darkMagic} />
+    </div>
+{:else if page === "shop"}
+    <div id="shop">
+        <Shop title="Properties" items={properties} enabled={properties} />
+        <Shop title="Trinkets" items={trinkets} enabled={properties} />
+        <Shop title="Weapons" items={weapons} enabled={properties} />
+        <Shop title="Servants" items={servants} enabled={properties} />
+    </div>
 {/if}
 
 <div id="content" class="text-red-500 hidden">
