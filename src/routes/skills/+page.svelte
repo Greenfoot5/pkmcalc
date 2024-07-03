@@ -12,7 +12,7 @@
     import { servants } from "$lib/data/servants.js";
     import { display } from "$lib/utils.ts";
 
-    let page = "shop";
+    let page = "skills";
 </script>
 
 <nav id="header">
