@@ -145,6 +145,7 @@
                 background: transparent;
                 border: none;
                 color: inherit;
+                font-size: 1em;
             }
         }
     }
